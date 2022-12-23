@@ -7,18 +7,28 @@ const app = express();
 // app.com/about
 
 app.get('', (req, res) => {
-  res.send('Hello express!');
+  res.send('<h1>Weather</h1>');
 });
 
 app.get('/help', (req, res) => {
-  res.send('Help page!!!');
+  res.send([
+    {
+      name: 'Brayan',
+      age: 27
+    },
+    { name: 'Gabriela' },
+  ]);
 });
 
 app.get('/about', (req, res) => {
-  res.send('About page');
+  res.send('<h1>About page</h1>');
 });
+
 app.get('/weather', (req, res) => {
-  res.send('Weather page');
+  res.send({
+    forecast: 'It is sunny',
+    location: 'Santa Ana, Santa Ana, El Salvador',
+  });
 });
 
 app.listen(3000, () => {
