@@ -51,6 +51,24 @@ app.get('/weather', (req, res) => {
   });
 });
 
+app.get('/help/*', (req, res) => {
+  res.render('404', {
+    title: '404',
+    error: 'Help article not found',
+    name: 'Brayan Garcia',
+  });
+});
+
+// match anything that hasn't been matched before
+// this one has to be last
+app.get('*', (req, res) => {
+  res.render('404', {
+    title: '404',
+    error: 'Page not found.',
+    name: 'Brayan Garcia',
+  });
+});
+
 app.listen(3000, () => {
   console.log('Server is up on port 3000!');
 });
